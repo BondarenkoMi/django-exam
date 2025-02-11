@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ review.author.username }} - {{ review.rating }} - {{ review.dish.name }}
+{% endblock %}
+{% block content %}
+  <div class="col d-flex justify-content-center">
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ review.dish.name }} - {{ review.dish.price }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <small>
+            {{ review.rating }}<br>
+            {{ review.descriprion}}<br>
+          </small>
+        </h6>
+        {% if user == review.author %}
+          <div class="mb-2">
+            <a class="btn btn-sm text-muted" href="{% url 'review:edit' review.id %}" role="button">
+              Отредактировать отзыв
+            </a>
+            <a class="btn btn-sm text-muted" href="{% url 'review:delete' review.id %}" role="button">
+              Удалить отзыв
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Список ресторанов{% endblock %}
+
+{% block content %}
+    <h1>Список ресторанов</h1>
+    <ul>
+        {% for restaurant in restaurants %}
+            {% if restaurant.logo %}
+                <img src="{{ restaurant.logo.url }}" alt="{{ restaurant.name }}" width="100">
+            {% endif %}
+            <li>{{ restaurant.name }} - {{ restaurant.address }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ restaurant.name }}
+{% endblock %}
+{% block content %}
+  <div class="col d-flex justify-content-center">
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        {% if restaurant.logo %}
+          <a href="{{ restaurant.logo.url }}" target="_blank">
+            <img class="border-3 rounded img-fluid img-thumbnail mb-2 mx-auto d-block" src="{{ restaurant.logo.url }}">
+          </a>
+        {% endif %}
+        <h5 class="card-title">{{ restaurant.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <small>
+            {{ restaurant.address }}<br>
+            {{ restaurant.descriprion}}<br>
+            {{ restaurant.contact_info }}
+          </small>
+        </h6>
+        {% if user.is_authenticated %}
+          <div class="mb-2">
+            <a class="btn btn-sm text-muted" href="{% url 'restaurant:edit' restaurant.id %}" role="button">
+              Отредактировать ресторан
+            </a>
+            <a class="btn btn-sm text-muted" href="{% url 'restaurant:delete' restaurant.id %}" role="button">
+              Удалить ресоран
+            </a>
+          </div>
+        {% endif %}
+        <h6 class="card-subtitle mb-2 text-muted">
+          <small>
+            <a href="{% url 'dish:create' %}">Добавить блюдо</a>
+            <a href="{% url 'dish:list' %}">Список блюд</a>
+            <a href="{% url 'review:create' %}">Добавить отзыв</a>
+            <a href="{% url 'review:list' %}">Список отзывов</a>
+          </small>
+      </div>
+    </div>
+  </div>
+{% endblock %}

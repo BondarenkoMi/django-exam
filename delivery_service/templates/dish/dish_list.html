@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Список блюд{% endblock %}
+
+{% block content %}
+    <h1>Список блюд</h1>
+    <ul>
+        {% for dish in dishes %}
+            {% if dish.image %}
+                <img src="{{ dish.image.url }}" alt="{{ dish.name }}" width="100">
+            {% endif %}
+            <li>{{ dish.name }} - {{ dish.restaurant.name }} - {{ dish.price }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
