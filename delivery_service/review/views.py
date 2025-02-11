@@ -19,12 +19,13 @@ class ReviewDetailView(DetailView):
     template_name = 'review/review_detail.html'
     context_object_name = 'review'
 
-class ReviewCreateView(CreateView, ReviewFormMixin):
+class ReviewCreateView(ReviewFormMixin, CreateView):
     template_name = 'review/review_create.html'
 
-class ReviewUpdateView(UpdateView, ReviewFormMixin):
+
+class ReviewUpdateView(ReviewFormMixin, UpdateView):
     template_name = 'review/review_update.html'
 
-class ReviewDeleteView(DeleteView, ReviewFormMixin):
+class ReviewDeleteView(ReviewFormMixin, DeleteView):
     template_name = 'review/review_delete.html'
 

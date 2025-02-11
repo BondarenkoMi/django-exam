@@ -22,12 +22,12 @@ class RestaurantDetailView(DetailView):
     template_name = 'restaurant/restaurant_detail.html'
     context_object_name = 'restaurant'
 
-class RestaurantCreateView(CreateView, RestaurantFormMixin):
+class RestaurantCreateView(RestaurantFormMixin, CreateView):
     template_name = 'restaurant/restaurant_create.html'
 
-class RestaurantUpdateView(UpdateView, RestaurantFormMixin):
+class RestaurantUpdateView(RestaurantFormMixin, UpdateView):
     template_name = 'restaurant/restaurant_create.html'
 
-class RestaurantDeleteView(DeleteView, RestaurantFormMixin):
+class RestaurantDeleteView(RestaurantFormMixin, DeleteView):
     template_name = 'restaurant/restaurant_create.html'
 

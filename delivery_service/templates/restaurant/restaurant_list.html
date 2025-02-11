@@ -9,7 +9,7 @@
             {% if restaurant.logo %}
                 <img src="{{ restaurant.logo.url }}" alt="{{ restaurant.name }}" width="100">
             {% endif %}
-            <li>{{ restaurant.name }} - {{ restaurant.address }}</li>
+            <li><a href="{% url 'restaurant:detail' restaurant.id %}">{{ restaurant.name }} - {{ restaurant.address }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

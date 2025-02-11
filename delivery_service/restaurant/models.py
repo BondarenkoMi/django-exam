@@ -49,6 +49,10 @@ class Restaurant(CreatedUpdatedMixin):
     def __str__(self):
         return self.name
     
+    class Meta:
+        verbose_name = 'Ресторан'
+        verbose_name_plural = 'Рестораны'
+    
 
     
 

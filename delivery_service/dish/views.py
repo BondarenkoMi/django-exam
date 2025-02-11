@@ -19,12 +19,12 @@ class DishDetailView(DetailView):
     template_name = 'dish/dish_detail.html'
     context_object_name = 'dish'
 
-class DishCreateView(CreateView, DishFormMixin):
+class DishCreateView(DishFormMixin, CreateView):
     template_name = 'dish/dish_create.html'
 
-class DishUpdateView(UpdateView, DishFormMixin):
+class DishUpdateView(DishFormMixin, UpdateView):
     template_name = 'dish/dish_create.html'
 
-class DishDeleteView(DeleteView, DishFormMixin):
+class DishDeleteView(DishFormMixin, DeleteView):
     template_name = 'dish/dish_create.html'
 

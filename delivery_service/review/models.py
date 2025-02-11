@@ -37,3 +37,10 @@ class Review(CreatedUpdatedMixin):
 
     def __str__(self):
         return f'Отзыв на блюдо {self.dish.name} от {self.author.username}'
+    
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+    
+
+    
